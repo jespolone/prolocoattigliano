@@ -1,0 +1,68 @@
+---
+layout: base.njk
+section: home
+---
+<section class="hero">
+  <img src="{{ site.logo | url }}" width="180" height="180" alt="Logo {{ site.legalName }}">
+  <h1>{{ site.name }}</h1>
+  <p>{{ site.tagline }}</p>
+  <div class="hero-actions">
+    <a class="btn" href="{{ '/eventi/' | url }}">Prossimi eventi</a>
+    <a class="btn btn-outline" href="{{ '/info/' | url }}">Chi siamo</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Prossimi eventi</h2>
+    <div class="cards">
+      {% for e in collections.eventiProssimi | head(3) %}
+        {% include "event-card.njk" %}
+      {% else %}
+        <div class="empty-state"><p>Nessun evento in programma al momento. Seguici su <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a> per gli aggiornamenti.</p></div>
+      {% endfor %}
+    </div>
+    <p class="section-more"><a href="{{ '/eventi/' | url }}">Vedi tutti gli eventi →</a></p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Chi siamo</h2>
+    <p class="lead">Siamo un'associazione di promozione locale di Attigliano. Ci occupiamo di valorizzare il nostro paese: cultura, tradizioni, eventi e comunità.</p>
+    <p><a href="{{ '/info/' | url }}">Scopri di più →</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container pillars">
+    <div class="pillar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/></svg>
+      <h3>Cultura</h3>
+      <p>Valorizziamo il patrimonio culturale del nostro paese.</p>
+    </div>
+    <div class="pillar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V9M12 9c0-3 2-5 6-5 0 4-2 6-6 5zM12 13c0-3-2-5-6-5 0 4 2 6 6 5z"/></svg>
+      <h3>Tradizioni</h3>
+      <p>Custodiamo e tramandiamo le usanze locali.</p>
+    </div>
+    <div class="pillar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+      <h3>Eventi</h3>
+      <p>Organizziamo appuntamenti aperti a tutti.</p>
+    </div>
+    <div class="pillar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.2c.6-.2 1.3-.3 2-.3 2.2 0 4 1.8 4 4"/></svg>
+      <h3>Comunità</h3>
+      <p>Creiamo occasioni per stare insieme.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Seguici su Instagram @prolocoattigliano</h2>
+  <div class="hero-actions">
+    <a class="btn" href="{{ site.instagram }}" target="_blank" rel="noopener">Seguici su Instagram</a>
+    <a class="btn btn-outline" href="mailto:{{ site.email }}">Scrivici</a>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+---
+layout: base.njk
+---
+{% set last = (endDate or page.date) | isoDay %}
+<article class="event-detail">
+  <a class="back" href="{{ '/eventi/' | url }}">← Tutti gli eventi</a>
+  <h1>{{ title }}</h1>
+  {% if last < today %}<span class="badge-past">Evento concluso</span>{% endif %}
+  <ul class="meta-list">
+    <li>{{ page.date | dataLunga }}{% if endDate and (endDate | isoDay) != (page.date | isoDay) %} – {{ endDate | dataLunga }}{% endif %}</li>
+    {% if time %}<li>{{ time }}</li>{% endif %}
+    {% if location %}<li>{{ location }}</li>{% endif %}
+  </ul>
+  {% if cover %}<div class="cover">{% eventImage cover, title %}</div>{% endif %}
+  {{ content | safe }}
+</article>

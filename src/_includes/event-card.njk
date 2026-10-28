@@ -1,0 +1,17 @@
+<article class="event-card">
+  <a href="{{ e.url | url }}">
+    {% if e.data.cover %}
+    <div class="cover">{% eventImage e.data.cover, e.data.title %}</div>
+    {% else %}
+    <div class="cover-placeholder"><img src="{{ site.logo | url }}" alt=""></div>
+    {% endif %}
+    <div class="date-badge"><span class="day">{{ e.date | giorno }}</span><span class="month">{{ e.date | meseBreve }}</span></div>
+    <div class="card-body">
+      <h3>{{ e.data.title }}</h3>
+      {% if e.data.time or e.data.location %}
+      <p class="meta">{% if e.data.time %}{{ e.data.time }}{% endif %}{% if e.data.time and e.data.location %} · {% endif %}{% if e.data.location %}{{ e.data.location }}{% endif %}</p>
+      {% endif %}
+      {% if e.data.summary %}<p class="summary">{{ e.data.summary }}</p>{% endif %}
+    </div>
+  </a>
+</article>

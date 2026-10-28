@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: Eventi passati
+section: eventi
+eleventyExcludeFromCollections: true
+---
+<div class="container">
+  <div class="page-head">
+    <h1>Eventi passati</h1>
+    <p>L'archivio degli eventi già conclusi.</p>
+  </div>
+  <div class="cards section">
+    {% for e in collections.eventiPassati %}
+      {% include "event-card.njk" %}
+    {% else %}
+      <div class="empty-state"><p>Nessun evento passato.</p></div>
+    {% endfor %}
+  </div>
+  <p class="section-more"><a href="{{ '/eventi/' | url }}">← Torna ai prossimi eventi</a></p>
+</div>

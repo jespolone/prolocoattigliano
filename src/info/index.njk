@@ -1,0 +1,42 @@
+---
+layout: base.njk
+title: Info
+section: info
+---
+<div class="container info-page">
+  <h1>Chi siamo</h1>
+  <p class="lead">{{ site.legalName }} è un'associazione di promozione sociale di Attigliano, in provincia di Terni, in Umbria. Promuoviamo la cultura, le tradizioni, gli eventi e la comunità del nostro territorio.</p>
+
+  <h2>Cosa facciamo</h2>
+  <ul class="pillar-list">
+    <li><strong>Cultura</strong>: valorizziamo il patrimonio culturale del nostro paese.</li>
+    <li><strong>Tradizioni</strong>: custodiamo e tramandiamo le usanze locali.</li>
+    <li><strong>Eventi</strong>: organizziamo appuntamenti aperti a tutti.</li>
+    <li><strong>Comunità</strong>: creiamo occasioni per stare insieme.</li>
+  </ul>
+
+  <h2>Dati dell'associazione</h2>
+  <dl class="info-grid">
+    <dt>Denominazione</dt><dd>{{ site.legalName }}</dd>
+    <dt>Sede</dt><dd>{{ site.town }}</dd>
+    {% if site.address %}<dt>Indirizzo</dt><dd>{{ site.address }}</dd>{% endif %}
+    {% if site.president %}<dt>Presidente</dt><dd>{{ site.president }}</dd>{% endif %}
+    {% if site.fiscalCode %}<dt>Codice fiscale</dt><dd>{{ site.fiscalCode }}</dd>{% endif %}
+    {% if site.foundedYear %}<dt>Fondata nel</dt><dd>{{ site.foundedYear }}</dd>{% endif %}
+    {% if site.openingHours %}<dt>Orari</dt><dd>{{ site.openingHours }}</dd>{% endif %}
+    {% if site.phone %}<dt>Telefono</dt><dd><a href="tel:{{ site.phone | replace(' ', '') }}">{{ site.phone }}</a></dd>{% endif %}
+  </dl>
+
+  <h2>Contatti</h2>
+  <ul>
+    <li>Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+    <li>Instagram: <a href="{{ site.instagram }}" target="_blank" rel="noopener">@prolocoattigliano</a></li>
+    {% if site.facebook %}<li>Facebook: <a href="{{ site.facebook }}" target="_blank" rel="noopener">{{ site.facebook }}</a></li>{% endif %}
+  </ul>
+
+  <h2>Dove siamo</h2>
+  <iframe class="map-embed" loading="lazy" title="Mappa di Attigliano" src="https://www.openstreetmap.org/export/embed.html?bbox=12.27%2C42.47%2C12.33%2C42.51&amp;layer=mapnik&amp;marker=42.4875%2C12.2999"></iframe>
+  <p><a href="https://www.openstreetmap.org/?mlat=42.4875&amp;mlon=12.2999#map=15/42.4875/12.2999" target="_blank" rel="noopener">Apri su OpenStreetMap</a></p>
+
+  <p>Vuoi darci una mano o diventare socio? <a class="btn" href="mailto:{{ site.email }}?subject=Informazioni%20Pro%20Loco">Scrivici</a></p>
+</div>

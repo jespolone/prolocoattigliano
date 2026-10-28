@@ -1,0 +1,40 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <img src="{{ site.logo | url }}" width="64" height="64" alt="">
+      <p class="footer-name">{{ site.legalName }}</p>
+      <p class="footer-tagline">{{ site.tagline }}</p>
+    </div>
+    <div class="footer-col">
+      <h2>Esplora</h2>
+      <ul>
+        <li><a href="{{ '/' | url }}">Home</a></li>
+        <li><a href="{{ '/eventi/' | url }}">Prossimi eventi</a></li>
+        <li><a href="{{ '/eventi/passati/' | url }}">Eventi passati</a></li>
+        <li><a href="{{ '/info/' | url }}">Info</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h2>Contatti</h2>
+      <ul>
+        <li>{{ site.town }}</li>
+        {% if site.address %}<li>{{ site.address }}</li>{% endif %}
+        {% if site.phone %}<li><a href="tel:{{ site.phone | replace(' ', '') }}">{{ site.phone }}</a></li>{% endif %}
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+      </ul>
+      <div class="social">
+        <a href="{{ site.instagram }}" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        {% if site.facebook %}
+        <a href="{{ site.facebook }}" aria-label="Facebook" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M14 8V6.5c0-.7.3-1 1-1h2V2h-3c-3 0-4.5 1.8-4.5 4.4V8H7v3.5h2.5V22H14V11.5h2.8L17.5 8H14z"/></svg>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">© {{ today.slice(0, 4) }} {{ site.legalName }}</div>
+  </div>
+</footer>
