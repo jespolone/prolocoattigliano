@@ -42,8 +42,12 @@ collections:
         name: location
         widget: string
         required: false
-      - label: Locandina
+      - label: Foto di copertina
         name: cover
+        widget: image
+        required: false
+      - label: Locandina
+        name: poster
         widget: image
         required: false
       - label: Breve descrizione
@@ -71,3 +75,13 @@ collections:
           - { label: Codice fiscale, name: fiscalCode, widget: string, required: false }
           - { label: Orari di apertura, name: openingHours, widget: string, required: false }
           - { label: Anno di fondazione, name: foundedYear, widget: string, required: false }
+          # Campi non modificabili dal pannello: nascosti per essere sempre conservati nel file
+          - { name: name, widget: hidden }
+          - { name: legalName, widget: hidden }
+          - { name: tagline, widget: hidden }
+          - { name: description, widget: hidden }
+          - { name: url, widget: hidden }
+          - { name: logo, widget: hidden }
+          - { name: town, widget: hidden }
+          - { name: mapLat, widget: hidden }
+          - { name: mapLon, widget: hidden }

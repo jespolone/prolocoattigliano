@@ -2,35 +2,39 @@
 layout: base.njk
 section: home
 ---
+{% set slides = ["archi", "panorama", "cesto", "piazza", "sentiero"] %}
 <section class="hero">
-  <img src="{{ site.logo | url }}" width="180" height="180" alt="Logo {{ site.legalName }}">
+  <div class="hero-slides" aria-hidden="true">
+    {% for s in slides %}
+    <div class="hero-slide{% if loop.first %} active{% endif %}" {% if loop.first %}style="background-image: url('{{ ('/media/images/hero/' + s + '.jpg') | url }}')"{% else %}data-bg="{{ ('/media/images/hero/' + s + '.jpg') | url }}"{% endif %}></div>
+    {% endfor %}
+  </div>
+  <img src="{{ site.logo | url }}" width="150" height="150" alt="Logo {{ site.legalName }}">
   <h1>{{ site.name }}</h1>
   <p>{{ site.tagline }}</p>
   <div class="hero-actions">
-    <a class="btn" href="{{ '/eventi/' | url }}">Prossimi eventi</a>
+    <a class="btn" href="{{ '/eventi/' | url }}">Eventi</a>
     <a class="btn btn-outline" href="{{ '/info/' | url }}">Chi siamo</a>
   </div>
 </section>
 
+{% if collections.eventiTutti.length %}
 <section class="section">
   <div class="container">
-    <h2 class="section-title">Prossimi eventi</h2>
+    <h2 class="section-title">I nostri eventi</h2>
     <div class="cards">
-      {% for e in collections.eventiProssimi | head(3) %}
+      {% asyncEach e in collections.eventiTutti | head(3) %}
         {% include "event-card.njk" %}
-      {% else %}
-        <div class="empty-state"><p>Nessun evento in programma al momento. Seguici su <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a> per gli aggiornamenti.</p></div>
-      {% endfor %}
+      {% endeach %}
     </div>
-    <p class="section-more"><a href="{{ '/eventi/' | url }}">Vedi tutti gli eventi →</a></p>
   </div>
 </section>
+{% endif %}
 
 <section class="section section-alt">
   <div class="container">
     <h2 class="section-title">Chi siamo</h2>
     <p class="lead">Siamo un'associazione di promozione locale di Attigliano. Ci occupiamo di valorizzare il nostro paese: cultura, tradizioni, eventi e comunità.</p>
-    <p><a href="{{ '/info/' | url }}">Scopri di più →</a></p>
   </div>
 </section>
 
@@ -60,9 +64,10 @@ section: home
 </section>
 
 <section class="cta-band">
-  <h2>Seguici su Instagram @prolocoattigliano</h2>
+  <h2>Seguici sui social</h2>
   <div class="hero-actions">
-    <a class="btn" href="{{ site.instagram }}" target="_blank" rel="noopener">Seguici su Instagram</a>
+    <a class="btn" href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>
+    {% if site.facebook %}<a class="btn" href="{{ site.facebook }}" target="_blank" rel="noopener">Facebook</a>{% endif %}
     <a class="btn btn-outline" href="mailto:{{ site.email }}">Scrivici</a>
   </div>
 </section>

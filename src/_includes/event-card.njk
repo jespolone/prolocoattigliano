@@ -1,4 +1,4 @@
-<article class="event-card">
+<article class="event-card{% if (e.data.endDate or e.date) | isoDay < today %} is-past{% endif %}">
   <a href="{{ e.url | url }}">
     {% if e.data.cover %}
     <div class="cover">{% eventImage e.data.cover, e.data.title %}</div>

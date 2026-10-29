@@ -13,4 +13,5 @@ layout: base.njk
   </ul>
   {% if cover %}<div class="cover">{% eventImage cover, title %}</div>{% endif %}
   {{ content | safe }}
+  {% if poster %}<div class="poster">{% eventImage poster, "Locandina: " + title %}</div>{% endif %}
 </article>

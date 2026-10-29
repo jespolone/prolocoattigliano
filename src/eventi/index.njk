@@ -1,20 +1,19 @@
 ---
 layout: base.njk
-title: Prossimi eventi
+title: Eventi
 section: eventi
 eleventyExcludeFromCollections: true
 ---
-<div class="container">
+<div class="container events-page">
   <div class="page-head">
-    <h1>Prossimi eventi</h1>
+    <h1>Eventi</h1>
     <p>Gli appuntamenti organizzati dalla Pro Loco Attigliano.</p>
   </div>
-  <div class="cards section">
-    {% for e in collections.eventiProssimi %}
+  <div class="cards">
+    {% asyncEach e in collections.eventiTutti %}
       {% include "event-card.njk" %}
     {% else %}
-      <div class="empty-state"><p>Nessun evento in programma.</p></div>
-    {% endfor %}
+      <div class="empty-state"><p>Nessun evento in programma. Seguici su <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a> per gli aggiornamenti.</p></div>
+    {% endeach %}
   </div>
-  <p class="section-more"><a href="{{ '/eventi/passati/' | url }}">Vedi gli eventi passati →</a></p>
 </div>

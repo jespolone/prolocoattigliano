@@ -7,13 +7,7 @@
     <nav class="nav-desktop" aria-label="Principale">
       <ul>
         <li><a href="{{ '/' | url }}"{% if section == "home" %} aria-current="page"{% endif %}>Home</a></li>
-        <li class="has-sub">
-          <a href="{{ '/eventi/' | url }}"{% if section == "eventi" %} aria-current="page"{% endif %}>Eventi</a>
-          <ul class="submenu">
-            <li><a href="{{ '/eventi/' | url }}"{% if page.url == "/eventi/" %} aria-current="page"{% endif %}>Prossimi eventi</a></li>
-            <li><a href="{{ '/eventi/passati/' | url }}"{% if page.url == "/eventi/passati/" %} aria-current="page"{% endif %}>Eventi passati</a></li>
-          </ul>
-        </li>
+        <li><a href="{{ '/eventi/' | url }}"{% if section == "eventi" %} aria-current="page"{% endif %}>Eventi</a></li>
         <li><a href="{{ '/info/' | url }}"{% if section == "info" %} aria-current="page"{% endif %}>Info</a></li>
       </ul>
     </nav>
@@ -24,8 +18,7 @@
   <nav id="mobile-menu" class="mobile-menu" aria-label="Menu mobile">
     <ul>
       <li><a href="{{ '/' | url }}"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a></li>
-      <li><a href="{{ '/eventi/' | url }}"{% if page.url == "/eventi/" %} aria-current="page"{% endif %}>Prossimi eventi</a></li>
-      <li><a href="{{ '/eventi/passati/' | url }}"{% if page.url == "/eventi/passati/" %} aria-current="page"{% endif %}>Eventi passati</a></li>
+      <li><a href="{{ '/eventi/' | url }}"{% if section == "eventi" %} aria-current="page"{% endif %}>Eventi</a></li>
       <li><a href="{{ '/info/' | url }}"{% if page.url == "/info/" %} aria-current="page"{% endif %}>Info</a></li>
     </ul>
   </nav>

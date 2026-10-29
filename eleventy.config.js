@@ -47,22 +47,24 @@ module.exports = function (eleventyConfig) {
   );
 
   const eventi = (api) => api.getFilteredByGlob("src/eventi/*.md");
-  eleventyConfig.addCollection("eventi", (api) => eventi(api));
-  eleventyConfig.addCollection("eventiProssimi", (api) =>
+  const prossimi = (api) =>
     eventi(api)
       .filter((item) => lastDay(item) >= today)
-      .sort((a, b) => a.date - b.date)
-  );
-  eleventyConfig.addCollection("eventiPassati", (api) =>
+      .sort((a, b) => a.date - b.date);
+  const passati = (api) =>
     eventi(api)
       .filter((item) => lastDay(item) < today)
-      .sort((a, b) => b.date - a.date)
-  );
+      .sort((a, b) => b.date - a.date);
+
+  eleventyConfig.addCollection("eventiProssimi", prossimi);
+  // Galleria unica: prima i prossimi (dal più vicino), poi i passati (dal più recente)
+  eleventyConfig.addCollection("eventiTutti", (api) => [...prossimi(api), ...passati(api)]);
 
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy({ media: "media" });
+  eleventyConfig.addPassthroughCopy("CNAME");
 
   return {
     dir: {
