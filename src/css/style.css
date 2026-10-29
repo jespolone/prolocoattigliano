@@ -190,7 +190,7 @@ a { color: var(--teal); }
 .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
 /* ---------- Sections ---------- */
-.section { padding: 3.5rem 0; }
+.section { padding-block: 3.5rem; }
 .section-alt { background: #fff; }
 .section-title { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0 0 1.5rem; }
 .lead { font-size: 1.1rem; max-width: 70ch; }
@@ -313,7 +313,7 @@ a { color: var(--teal); }
 .event-detail .poster img { display: block; width: 100%; height: auto; border-radius: var(--radius); box-shadow: 0 2px 12px rgba(0, 0, 0, .12); }
 
 /* ---------- Info ---------- */
-.info-page { padding: 2.5rem 0 4rem; }
+.info-page { padding-block: 2.5rem 4rem; overflow-wrap: anywhere; }
 .info-page h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); }
 .info-page h2 { margin-top: 2.5rem; }
 .info-grid {
