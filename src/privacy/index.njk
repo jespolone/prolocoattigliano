@@ -2,36 +2,52 @@
 layout: base.njk
 title: Privacy e cookie
 description: Informativa sul trattamento dei dati personali e sull'uso dei cookie del sito della Pro Loco Attigliano.
+updated: 2026-11-07
 ---
 <div class="container info-page">
   <h1>Privacy e cookie</h1>
   <p class="lead">Informativa ai sensi degli artt. 13 e 14 del Regolamento (UE) 2016/679 (GDPR) per chi visita questo sito.</p>
-  <p><em>Ultimo aggiornamento: 7 novembre 2026</em></p>
+  <p><em>Ultimo aggiornamento: {{ updated | dataLunga }}</em></p>
 
   <h2>Titolare del trattamento</h2>
   <p>{{ site.legalName }}{% if site.address %}, con sede legale in {{ site.address }}{% endif %}{% if site.fiscalCode %}, C.F. {{ site.fiscalCode }}{% endif %}{% if site.vatNumber %}, P.IVA {{ site.vatNumber }}{% endif %}.<br>
   Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a>{% if site.pec %} · PEC: <a href="mailto:{{ site.pec }}">{{ site.pec }}</a>{% endif %}</p>
 
-  <h2>Quali dati trattiamo</h2>
+  <h2>Quali dati trattiamo, perché e su quale base</h2>
   <ul>
-    <li><strong>Dati di navigazione.</strong> Il sito è ospitato su GitHub Pages (GitHub, Inc.), che per motivi tecnici e di sicurezza registra l'indirizzo IP e alcuni dati del browser di chi visita le pagine. Noi non usiamo strumenti di statistica né di profilazione.</li>
-    <li><strong>Dati che ci invii.</strong> Se ci scrivi via email o tramite i nostri profili social, trattiamo i dati che ci comunichi solo per risponderti.</li>
+    <li><strong>Dati di navigazione.</strong> Il sito è ospitato su GitHub Pages (GitHub, Inc.), che per motivi tecnici e di sicurezza registra l'indirizzo IP e alcuni dati del browser di chi visita le pagine. Base giuridica: nostro legittimo interesse a far funzionare il sito in modo sicuro (art. 6, par. 1, lett. f GDPR). Noi non usiamo strumenti di statistica né di profilazione.</li>
+    <li><strong>Dati che ci invii.</strong> Se ci scrivi via email, PEC o tramite i nostri profili social, trattiamo i dati che ci comunichi solo per risponderti e gestire la tua richiesta. Base giuridica: esecuzione di misure richieste da te (art. 6, par. 1, lett. b) o nostro legittimo interesse a rispondere (art. 6, par. 1, lett. f). La nostra casella email è gestita tramite Gmail (Google).</li>
+    <li><strong>Mappa di Google Maps.</strong> Viene caricata solo se dai il consenso (art. 6, par. 1, lett. a GDPR); vedi la sezione Cookie.</li>
   </ul>
 
-  <h2>Cookie</h2>
+  <h2>Cookie e archiviazione nel browser</h2>
   <ul>
-    <li><strong>Tecnici.</strong> Salviamo nel tuo browser (localStorage) solo la scelta fatta sul banner dei cookie, per non riproportelo a ogni visita. Non serve il consenso.</li>
-    <li><strong>Di terze parti: Google Maps.</strong> La mappa nella pagina <a href="{{ '/info/' | url }}">Info</a> è fornita da Google Ireland Ltd. e viene caricata <strong>solo se dai il consenso</strong>. Una volta caricata, Google può raccogliere dati (come l'indirizzo IP) e usare cookie secondo la propria <a href="https://policies.google.com/privacy?hl=it" target="_blank" rel="noopener">informativa privacy</a>.</li>
+    <li><strong>Tecnici.</strong> Il sito non imposta cookie propri: salva nel tuo browser (localStorage, uno strumento simile a un cookie) solo la scelta fatta sul banner, per non riproportelo a ogni visita. Non serve il consenso.</li>
+    <li><strong>Di terze parti: Google Maps.</strong> La mappa nella pagina <a href="{{ '/info/' | url }}">Info</a> è fornita da Google Ireland Ltd. e viene caricata <strong>solo se dai il consenso</strong>. Una volta caricata, Google (anche tramite Google LLC, negli Stati Uniti) può raccogliere dati come l'indirizzo IP e usare cookie secondo la propria <a href="https://policies.google.com/privacy?hl=it" target="_blank" rel="noopener">informativa privacy</a>.</li>
   </ul>
-  <p>I link a Instagram e Facebook portano a siti esterni con proprie informative: nessun contenuto di questi social viene caricato nelle nostre pagine.</p>
+  <p>I link a Instagram, Facebook e Google Maps portano a siti esterni con proprie informative: nessun contenuto di questi siti viene caricato nelle nostre pagine senza il tuo consenso.</p>
 
-  <h2>Base giuridica e conservazione</h2>
-  <p>Trattiamo i dati di navigazione per il nostro legittimo interesse a far funzionare il sito in sicurezza, e quelli che ci invii per rispondere alle tue richieste. La mappa di Google è caricata sulla base del tuo consenso, che puoi revocare in ogni momento. Conserviamo i dati solo per il tempo necessario a questi scopi.</p>
+  <h2>A chi arrivano i dati</h2>
+  <p>I dati non vengono venduti né diffusi. Possono trattarli, per nostro conto o come titolari autonomi, i fornitori dei servizi che usiamo: GitHub, Inc. (hosting del sito) e Google (posta elettronica e, se acconsenti, la mappa).</p>
+
+  <h2>Trasferimento fuori dall'Unione europea</h2>
+  <p>GitHub, Inc. e Google LLC hanno sede negli Stati Uniti, quindi alcuni dati possono essere trasferiti fuori dall'UE. Entrambe le società aderiscono all'EU-U.S. Data Privacy Framework, riconosciuto adeguato dalla Commissione europea (art. 45 GDPR), e adottano le clausole contrattuali standard approvate dalla Commissione (art. 46 GDPR).</p>
+
+  <h2>Per quanto tempo conserviamo i dati</h2>
+  <ul>
+    <li><strong>Email e messaggi:</strong> per il tempo necessario a gestire la richiesta e comunque non oltre 24 mesi dall'ultimo contatto, salvo obblighi di legge (ad esempio documenti fiscali).</li>
+    <li><strong>Dati di navigazione:</strong> conservati da GitHub secondo le proprie regole, che non possiamo modificare (<a href="https://docs.github.com/it/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">informativa di GitHub</a>).</li>
+    <li><strong>Scelta sui cookie:</strong> resta nel tuo browser finché non la modifichi o non cancelli i dati di navigazione.</li>
+  </ul>
 
   <h2>I tuoi diritti</h2>
-  <p>Puoi chiederci in qualsiasi momento l'accesso, la rettifica, la cancellazione o la limitazione dei tuoi dati, o opporti al trattamento, scrivendo a <a href="mailto:{{ site.email }}">{{ site.email }}</a>. Hai anche diritto di presentare reclamo al <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a>.</p>
+  <p>Puoi chiederci in qualsiasi momento l'accesso ai tuoi dati, la rettifica, la cancellazione, la limitazione del trattamento, la portabilità, oppure opporti al trattamento basato sul legittimo interesse (artt. 15–22 GDPR), scrivendo a <a href="mailto:{{ site.email }}">{{ site.email }}</a>{% if site.pec %} o alla PEC <a href="mailto:{{ site.pec }}">{{ site.pec }}</a>{% endif %}.</p>
+  <p>Puoi revocare il consenso in ogni momento: la revoca non rende illegittimo quanto fatto prima. Hai anche diritto di presentare reclamo al <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a> (art. 77 GDPR).</p>
+
+  <h2>Area riservata</h2>
+  <p>La pagina di amministrazione del sito è usata solo dai volontari che ne aggiornano i contenuti: richiede l'accesso con un account GitHub e carica il software di gestione da un servizio esterno (unpkg.com). Non riguarda i visitatori.</p>
 
   <h2>Le tue preferenze</h2>
-  <p>Puoi cambiare in ogni momento la scelta fatta sui cookie.</p>
+  <p>Puoi cambiare in ogni momento la scelta fatta sulla mappa di Google. Se l'avevi accettata, dopo la revoca la mappa non verrà più caricata, ma gli eventuali cookie già impostati da Google restano nel browser finché non li cancelli dalle sue impostazioni.</p>
   <p><button type="button" class="btn" data-consent-reset>Modifica preferenze cookie</button></p>
 </div>
