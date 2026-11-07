@@ -39,7 +39,10 @@ section: info
   <h2>Dove siamo</h2>
   {% if site.mapAddress %}<p>{{ site.mapAddress }}</p>{% endif %}
   {% set mapQuery = (site.mapAddress or (site.mapLat + "," + site.mapLon)) | urlencode %}
-  <iframe class="map-embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa: sede della Pro Loco Attigliano" src="https://maps.google.com/maps?q={{ mapQuery }}&amp;z=17&amp;hl=it&amp;output=embed"></iframe>
+  <div class="map-embed map-consent" data-map-src="https://maps.google.com/maps?q={{ mapQuery }}&amp;z=17&amp;hl=it&amp;output=embed" data-map-title="Mappa: sede della Pro Loco Attigliano">
+    <p>La mappa è fornita da Google Maps, che può raccogliere dati e usare cookie (<a href="{{ '/privacy/' | url }}">informativa</a>).</p>
+    <button type="button" class="btn" data-consent-accept>Mostra la mappa</button>
+  </div>
   <p><a href="https://www.google.com/maps/search/?api=1&amp;query={{ mapQuery }}" target="_blank" rel="noopener">Apri in Google Maps</a></p>
 
   <p>Vuoi darci una mano o diventare socio? <a class="btn" href="mailto:{{ site.email }}?subject=Informazioni%20Pro%20Loco">Scrivici</a></p>

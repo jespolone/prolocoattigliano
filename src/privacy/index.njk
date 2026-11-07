@@ -1,0 +1,37 @@
+---
+layout: base.njk
+title: Privacy e cookie
+description: Informativa sul trattamento dei dati personali e sull'uso dei cookie del sito della Pro Loco Attigliano.
+---
+<div class="container info-page">
+  <h1>Privacy e cookie</h1>
+  <p class="lead">Informativa ai sensi degli artt. 13 e 14 del Regolamento (UE) 2016/679 (GDPR) per chi visita questo sito.</p>
+  <p><em>Ultimo aggiornamento: 7 novembre 2026</em></p>
+
+  <h2>Titolare del trattamento</h2>
+  <p>{{ site.legalName }}{% if site.address %}, con sede legale in {{ site.address }}{% endif %}{% if site.fiscalCode %}, C.F. {{ site.fiscalCode }}{% endif %}.<br>
+  Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+
+  <h2>Quali dati trattiamo</h2>
+  <ul>
+    <li><strong>Dati di navigazione.</strong> Il sito è ospitato su GitHub Pages (GitHub, Inc.), che per motivi tecnici e di sicurezza registra l'indirizzo IP e alcuni dati del browser di chi visita le pagine. Noi non usiamo strumenti di statistica né di profilazione.</li>
+    <li><strong>Dati che ci invii.</strong> Se ci scrivi via email o tramite i nostri profili social, trattiamo i dati che ci comunichi solo per risponderti.</li>
+  </ul>
+
+  <h2>Cookie</h2>
+  <ul>
+    <li><strong>Tecnici.</strong> Salviamo nel tuo browser (localStorage) solo la scelta fatta sul banner dei cookie, per non riproportelo a ogni visita. Non serve il consenso.</li>
+    <li><strong>Di terze parti: Google Maps.</strong> La mappa nella pagina <a href="{{ '/info/' | url }}">Info</a> è fornita da Google Ireland Ltd. e viene caricata <strong>solo se dai il consenso</strong>. Una volta caricata, Google può raccogliere dati (come l'indirizzo IP) e usare cookie secondo la propria <a href="https://policies.google.com/privacy?hl=it" target="_blank" rel="noopener">informativa privacy</a>.</li>
+  </ul>
+  <p>I link a Instagram e Facebook portano a siti esterni con proprie informative: nessun contenuto di questi social viene caricato nelle nostre pagine.</p>
+
+  <h2>Base giuridica e conservazione</h2>
+  <p>Trattiamo i dati di navigazione per il nostro legittimo interesse a far funzionare il sito in sicurezza, e quelli che ci invii per rispondere alle tue richieste. La mappa di Google è caricata sulla base del tuo consenso, che puoi revocare in ogni momento. Conserviamo i dati solo per il tempo necessario a questi scopi.</p>
+
+  <h2>I tuoi diritti</h2>
+  <p>Puoi chiederci in qualsiasi momento l'accesso, la rettifica, la cancellazione o la limitazione dei tuoi dati, o opporti al trattamento, scrivendo a <a href="mailto:{{ site.email }}">{{ site.email }}</a>. Hai anche diritto di presentare reclamo al <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a>.</p>
+
+  <h2>Le tue preferenze</h2>
+  <p>Puoi cambiare in ogni momento la scelta fatta sui cookie.</p>
+  <p><button type="button" class="btn" data-consent-reset>Modifica preferenze cookie</button></p>
+</div>

@@ -43,4 +43,38 @@
       }, 6000);
     }
   }
+
+  // Consenso cookie: la mappa Google viene caricata solo dopo "Accetta"/"Mostra la mappa".
+  var CONSENT_KEY = "cookieConsent"; // "all" | "necessary"
+  var banner = document.getElementById("cookie-banner");
+  function getConsent() {
+    try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
+  }
+  function loadMaps() {
+    document.querySelectorAll(".map-consent").forEach(function (box) {
+      var iframe = document.createElement("iframe");
+      iframe.className = "map-embed";
+      iframe.loading = "lazy";
+      iframe.title = box.dataset.mapTitle || "Mappa";
+      iframe.referrerPolicy = "no-referrer-when-downgrade";
+      iframe.src = box.dataset.mapSrc;
+      box.replaceWith(iframe);
+    });
+  }
+  function setConsent(value) {
+    try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+    banner.hidden = true;
+    if (value === "all") loadMaps();
+  }
+  document.addEventListener("click", function (e) {
+    if (e.target.closest("[data-consent-accept]")) setConsent("all");
+    else if (e.target.closest("[data-consent-reject]")) setConsent("necessary");
+    else if (e.target.closest("[data-consent-reset]")) {
+      try { localStorage.removeItem(CONSENT_KEY); } catch (err) {}
+      location.reload();
+    }
+  });
+  var consent = getConsent();
+  if (consent === "all") loadMaps();
+  else if (!consent) banner.hidden = false;
 })();
