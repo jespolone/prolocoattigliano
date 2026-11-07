@@ -37,8 +37,9 @@ section: info
   </ul>
 
   <h2>Dove siamo</h2>
-  <iframe class="map-embed" loading="lazy" title="Mappa di Attigliano" src="https://www.openstreetmap.org/export/embed.html?bbox=12.27%2C42.47%2C12.33%2C42.51&amp;layer=mapnik&amp;marker=42.4875%2C12.2999"></iframe>
-  <p><a href="https://www.openstreetmap.org/?mlat=42.4875&amp;mlon=12.2999#map=15/42.4875/12.2999" target="_blank" rel="noopener">Apri su OpenStreetMap</a></p>
+  {% set bbox = [site.mapLon - 0.004, site.mapLat - 0.0025, site.mapLon + 0.004, site.mapLat + 0.0025] | join("%2C") %}
+  <iframe class="map-embed" loading="lazy" title="Mappa: sede della Pro Loco Attigliano" src="https://www.openstreetmap.org/export/embed.html?bbox={{ bbox }}&amp;layer=mapnik&amp;marker={{ site.mapLat }}%2C{{ site.mapLon }}"></iframe>
+  <p><a href="https://www.openstreetmap.org/?mlat={{ site.mapLat }}&amp;mlon={{ site.mapLon }}#map=18/{{ site.mapLat }}/{{ site.mapLon }}" target="_blank" rel="noopener">Apri su OpenStreetMap</a></p>
 
   <p>Vuoi darci una mano o diventare socio? <a class="btn" href="mailto:{{ site.email }}?subject=Informazioni%20Pro%20Loco">Scrivici</a></p>
 </div>
