@@ -74,6 +74,8 @@ collections:
           - { label: Telefono, name: phone, widget: string, required: false }
           - { label: Presidente, name: president, widget: string, required: false }
           - { label: Codice fiscale, name: fiscalCode, widget: string, required: false }
+          - { label: Partita IVA, name: vatNumber, widget: string, required: false }
+          - { label: PEC, name: pec, widget: string, required: false }
           - { label: Orari di apertura, name: openingHours, widget: string, required: false }
           - { label: Anno di fondazione, name: foundedYear, widget: string, required: false }
           # Campi non modificabili dal pannello: nascosti per essere sempre conservati nel file

@@ -9,8 +9,8 @@ description: Informativa sul trattamento dei dati personali e sull'uso dei cooki
   <p><em>Ultimo aggiornamento: 7 novembre 2026</em></p>
 
   <h2>Titolare del trattamento</h2>
-  <p>{{ site.legalName }}{% if site.address %}, con sede legale in {{ site.address }}{% endif %}{% if site.fiscalCode %}, C.F. {{ site.fiscalCode }}{% endif %}.<br>
-  Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+  <p>{{ site.legalName }}{% if site.address %}, con sede legale in {{ site.address }}{% endif %}{% if site.fiscalCode %}, C.F. {{ site.fiscalCode }}{% endif %}{% if site.vatNumber %}, P.IVA {{ site.vatNumber }}{% endif %}.<br>
+  Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a>{% if site.pec %} · PEC: <a href="mailto:{{ site.pec }}">{{ site.pec }}</a>{% endif %}</p>
 
   <h2>Quali dati trattiamo</h2>
   <ul>

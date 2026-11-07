@@ -34,6 +34,6 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="container">© {{ today.slice(0, 4) }} {{ site.legalName }} · <a href="{{ '/privacy/' | url }}">Privacy e cookie</a></div>
+    <div class="container">© {{ today.slice(0, 4) }} {{ site.legalName }}{% if site.fiscalCode %} · C.F. {{ site.fiscalCode }}{% endif %}{% if site.vatNumber %} · P.IVA {{ site.vatNumber }}{% endif %} · <a href="{{ '/privacy/' | url }}">Privacy e cookie</a></div>
   </div>
 </footer>

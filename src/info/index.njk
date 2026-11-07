@@ -24,6 +24,7 @@ section: info
     {% if site.address %}<dt>Sede legale</dt><dd>{{ site.address }}</dd>{% endif %}
     {% if site.president %}<dt>Presidente</dt><dd>{{ site.president }}</dd>{% endif %}
     {% if site.fiscalCode %}<dt>Codice fiscale</dt><dd>{{ site.fiscalCode }}</dd>{% endif %}
+    {% if site.vatNumber %}<dt>Partita IVA</dt><dd>{{ site.vatNumber }}</dd>{% endif %}
     {% if site.foundedYear %}<dt>Fondata nel</dt><dd>{{ site.foundedYear }}</dd>{% endif %}
     {% if site.openingHours %}<dt>Orari</dt><dd>{{ site.openingHours }}</dd>{% endif %}
     {% if site.phone %}<dt>Telefono</dt><dd><a href="tel:{{ site.phone | replace(' ', '') }}">{{ site.phone }}</a></dd>{% endif %}
@@ -32,6 +33,7 @@ section: info
   <h2>Contatti</h2>
   <ul>
     <li>Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+    {% if site.pec %}<li>PEC: <a href="mailto:{{ site.pec }}">{{ site.pec }}</a></li>{% endif %}
     <li>Instagram: <a href="{{ site.instagram }}" target="_blank" rel="noopener">@prolocoattigliano</a></li>
     {% if site.facebook %}<li>Facebook: <a href="{{ site.facebook }}" target="_blank" rel="noopener">Pro Loco di Attigliano APS</a></li>{% endif %}
   </ul>
