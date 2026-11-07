@@ -242,6 +242,8 @@ a { color: var(--teal); }
 }
 .date-badge .day { font-size: 1.5rem; font-weight: 700; }
 .date-badge .month { font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; margin-top: .2rem; }
+.date-badge.is-soon .day { font-size: 1.1rem; text-transform: capitalize; }
+.date-badge.is-soon .month { font-size: .6rem; }
 .event-card .card-body { padding: 1rem 1.2rem 1.3rem; }
 .event-card h3 { margin: 0 0 .4rem; font-size: 1.25rem; }
 .event-card .meta { margin: 0 0 .5rem; color: var(--muted); font-size: .9rem; }
@@ -264,6 +266,16 @@ a { color: var(--teal); }
   font-size: .8rem;
   font-weight: 600;
 }
+.badge-soon {
+  display: inline-block;
+  padding: .2rem .7rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 600;
+}
+.coming-soon-note { font-size: 1.1rem; }
 
 .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
 .pillar { background: var(--cream); border-radius: var(--radius); padding: 1.5rem; }

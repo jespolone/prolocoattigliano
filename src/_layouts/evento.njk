@@ -5,6 +5,15 @@ layout: base.njk
 <article class="event-detail">
   <a class="back" href="{{ '/eventi/' | url }}">← Tutti gli eventi</a>
   <h1>{{ title }}</h1>
+  {% if comingSoon %}
+  <span class="badge-soon">Prossimamente</span>
+  <ul class="meta-list">
+    <li>{{ page.date | meseAnno }} – data da confermare</li>
+    {% if location %}<li>{{ location }}</li>{% endif %}
+  </ul>
+  {% if cover %}<div class="cover">{% eventImage cover, title %}</div>{% endif %}
+  {% if teaser %}<p class="coming-soon-note">{{ teaser }}</p>{% endif %}
+  {% else %}
   {% if last < today %}<span class="badge-past">Evento concluso</span>{% endif %}
   <ul class="meta-list">
     <li>{{ page.date | dataLunga }}{% if endDate and (endDate | isoDay) != (page.date | isoDay) %} – {{ endDate | dataLunga }}{% endif %}</li>
@@ -14,4 +23,5 @@ layout: base.njk
   {% if cover %}<div class="cover">{% eventImage cover, title %}</div>{% endif %}
   {{ content | safe }}
   {% if poster %}<div class="poster">{% eventImage poster, "Locandina: " + title %}</div>{% endif %}
+  {% endif %}
 </article>

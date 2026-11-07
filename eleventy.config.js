@@ -1,3 +1,5 @@
+const fs = require("fs");
+const matter = require("gray-matter");
 const Image = require("@11ty/eleventy-img");
 const today = require("./src/_data/today.js");
 
@@ -29,6 +31,19 @@ async function eventImageShortcode(src, alt) {
 module.exports = function (eleventyConfig) {
   eleventyConfig.addAsyncShortcode("eventImage", eventImageShortcode);
 
+  // Eventi con `draft: true`: visibili solo con `npm start` (eleventy --serve);
+  // `npm run build` (quello del deploy) li esclude. Le loro immagini vanno in
+  // `bozze/` (non copiata nel sito): vengono elaborate solo se la pagina è generata.
+  if (process.env.ELEVENTY_RUN_MODE !== "serve") {
+    for (const file of fs.readdirSync("src/eventi").filter((f) => f.endsWith(".md"))) {
+      const { data } = matter(fs.readFileSync(`src/eventi/${file}`, "utf8"));
+      if (data.draft) eleventyConfig.ignores.add(`src/eventi/${file}`);
+    }
+  }
+
+  eleventyConfig.addFilter("meseAnno", (d) =>
+    new Intl.DateTimeFormat("it-IT", { month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(d))
+  );
   eleventyConfig.addFilter("head", (arr, n) => arr.slice(0, n));
   eleventyConfig.addFilter("isoDay", toISO);
   eleventyConfig.addFilter("dataLunga", (d) =>
